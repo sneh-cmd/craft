@@ -11,18 +11,18 @@ export const SOCIAL = {
 };
 
 export const categories = [
-  { id: "wall-decor", name: "Wall Decor", image: img("monk-rose-hanging.png") },
+  { id: "wall-decor", name: "Wall Decor", image: img("monk-rose-hanging.webp") },
   {
     id: "table-decor",
     name: "Table Decor",
-    image: img("thread-rose-vase.png"),
+    image: img("thread-rose-vase.webp"),
   },
   {
     id: "traditional",
     name: "Traditional Decor",
-    image: img("radha-krishna.png"),
+    image: img("radha-krishna.webp"),
   },
-  { id: "custom", name: "Custom Creations", image: img("floral-panels.png") },
+  { id: "custom", name: "Custom Creations", image: img("floral-panels.webp") },
 ];
 
 export const products = [
@@ -38,8 +38,8 @@ export const products = [
     material: "Craft tubes, Artificial roses, Beads, Tassels",
     size: "Approx. 14 × 20 inch",
     color: "Red, White & Multicolor",
-    image: img("monk-rose-hanging.png"),
-    gallery: [img("monk-rose-hanging.png")],
+    image: img("monk-rose-hanging.webp"),
+    gallery: [img("monk-rose-hanging.webp")],
     shortDescription:
       "Vibrant wall hanging with rose basket, monk figurine and colourful tassels.",
     description:
@@ -59,8 +59,8 @@ export const products = [
     material: "Bamboo sticks, Metal bell, Artificial flowers, Braided cord",
     size: "Approx. 18 × 8 inch",
     color: "Gold, Pink & Multicolor",
-    image: img("golden-bell-wall-plaque.png"),
-    gallery: [img("golden-bell-wall-plaque.png")],
+    image: img("golden-bell-wall-plaque.webp"),
+    gallery: [img("golden-bell-wall-plaque.webp")],
     shortDescription:
       "Tall bamboo wall plaque with golden bell, vine leaves and floral pot.",
     description:
@@ -80,8 +80,8 @@ export const products = [
     material: "Frame, Fabric panel, Artificial florals, Gold accents",
     size: "Approx. 16 × 8 inch",
     color: "Royal Blue, Gold & Pink",
-    image: img("floral-panels.png"),
-    gallery: [img("floral-panels.png"), img("floral-panels-2.png")],
+    image: img("floral-panels.webp"),
+    gallery: [img("floral-panels.webp"), img("floral-panels-2.webp")],
     shortDescription:
       "Deep blue framed panel with gold border, pink florals and bright tassel.",
     description:
@@ -101,8 +101,8 @@ export const products = [
     material: "Frame, Fabric panel, Artificial greenery, Gold accents",
     size: "Approx. 16 × 8 inch",
     color: "Fuchsia Pink, Gold & Green",
-    image: img("floral-panels-2.png"),
-    gallery: [img("floral-panels-2.png"), img("floral-panels.png")],
+    image: img("floral-panels-2.webp"),
+    gallery: [img("floral-panels-2.webp"), img("floral-panels.webp")],
     shortDescription:
       "Hot-pink framed panel with peacock vase motif and lush greenery.",
     description:
@@ -122,8 +122,8 @@ export const products = [
     material: "Popsicle sticks, Rhinestones, Beads, Fabric trim",
     size: "Approx. 10 × 6 × 4 inch",
     color: "Natural Wood & Multicolor",
-    image: img("desk-organizer.png"),
-    gallery: [img("desk-organizer.png")],
+    image: img("desk-organizer.webp"),
+    gallery: [img("desk-organizer.webp")],
     shortDescription:
       "Colourful popsicle-stick desk set with pen holder and open tray.",
     description:
@@ -143,8 +143,8 @@ export const products = [
     material: "Metal accents, Rhinestones, Beads",
     size: "Approx. 12 × 6 inch",
     color: "Gold, Red & Blue",
-    image: img("peacock-key-holder.png"),
-    gallery: [img("peacock-key-holder.png")],
+    image: img("peacock-key-holder.webp"),
+    gallery: [img("peacock-key-holder.webp")],
     shortDescription:
       "Ornate gold key holder with peacock motifs and hanging rings.",
     description:
@@ -164,8 +164,8 @@ export const products = [
     material: "Bamboo slats, Figurines, Beads, Artificial flowers",
     size: "Approx. 18 × 10 inch",
     color: "Gold, Black & Multicolor",
-    image: img("radha-krishna.png"),
-    gallery: [img("radha-krishna.png")],
+    image: img("radha-krishna.webp"),
+    gallery: [img("radha-krishna.webp")],
     shortDescription:
       "Devotional wall hanging with Radha-Krishna figures and festive detailing.",
     description:
@@ -185,8 +185,8 @@ export const products = [
     material: "Metal-style vase, Artificial foliage",
     size: "Approx. 10 inch height",
     color: "Gold, Blue & Purple",
-    image: img("golden-pillar-vase.png"),
-    gallery: [img("golden-pillar-vase.png")],
+    image: img("golden-pillar-vase.webp"),
+    gallery: [img("golden-pillar-vase.webp")],
     shortDescription:
       "Gold lattice pillar vase with peacock motifs and purple foliage.",
     description:
@@ -206,8 +206,8 @@ export const products = [
     material: "Gold pillars, Rhinestones, Artificial flowers",
     size: "Approx. 16 × 12 inch",
     color: "Gold & Multicolor",
-    image: img("peacock-pillar-hanging.png"),
-    gallery: [img("peacock-pillar-hanging.png")],
+    image: img("peacock-pillar-hanging.webp"),
+    gallery: [img("peacock-pillar-hanging.webp")],
     shortDescription:
       "Palace-inspired wall hanging with peacock pillars and floral base.",
     description:
@@ -227,8 +227,8 @@ export const products = [
     material: "Wood shelf, Fabric pillars, Artificial flowers, Metal chain",
     size: "Approx. 14 × 12 inch",
     color: "Pink, Blue & Gold",
-    image: img("puja-wall-shelf.png"),
-    gallery: [img("puja-wall-shelf.png")],
+    image: img("puja-wall-shelf.webp"),
+    gallery: [img("puja-wall-shelf.webp")],
     shortDescription:
       "Hanging puja shelf with golden bell, floral accents and decorative pillars.",
     description:
@@ -248,8 +248,8 @@ export const products = [
     material: "Bamboo slats, Beads, Tassels, Artificial plants",
     size: "Approx. 14 × 12 inch",
     color: "Multicolor",
-    image: img("sweet-home-hanging.png"),
-    gallery: [img("sweet-home-hanging.png")],
+    image: img("sweet-home-hanging.webp"),
+    gallery: [img("sweet-home-hanging.webp")],
     shortDescription:
       "Cheerful “Sweet Home” hanging with tassels and mini balcony garden.",
     description:
@@ -269,8 +269,8 @@ export const products = [
     material: "Mixed craft materials, Artificial flowers, Wood stand",
     size: "Set display · Approx. 16 inch width",
     color: "Gold, Blue & Multicolor",
-    image: img("table-decor-display.png"),
-    gallery: [img("table-decor-display.png")],
+    image: img("table-decor-display.webp"),
+    gallery: [img("table-decor-display.webp")],
     shortDescription:
       "Complete table décor arrangement with twin vases and monk display stand.",
     description:
@@ -290,8 +290,8 @@ export const products = [
     material: "Thread-wrapped vase, Artificial roses",
     size: "Approx. 10 inch height",
     color: "Multicolor & Red",
-    image: img("thread-rose-vase.png"),
-    gallery: [img("thread-rose-vase.png")],
+    image: img("thread-rose-vase.webp"),
+    gallery: [img("thread-rose-vase.webp")],
     shortDescription:
       "Thread-wrapped vase filled with bright red roses and greenery.",
     description:
