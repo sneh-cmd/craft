@@ -5,6 +5,6 @@ import tailwindcss from '@tailwindcss/vite'
 // Change base to '/' if deploying at domain root.
 // For GitHub Pages project site: '/<repo-name>/'
 export default defineConfig({
-  base: '/shreeji_craft/',
+  base: '/craft/',
   plugins: [react(), tailwindcss()],
 })
