@@ -1,10 +1,8 @@
 import { useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import {
-  Check,
   HandHeart,
   Heart,
-  Link2,
   Package,
   RefreshCcw,
   Share2,
@@ -14,9 +12,6 @@ import StarRating from '../components/StarRating'
 import { formatPrice, getProductById } from '../data/products'
 import { useShop } from '../context/ShopContext'
 import {
-  copyText,
-  getProductImageUrl,
-  getProductShareUrl,
   openWhatsApp,
   productOrderMessage,
   shareProduct,
@@ -32,7 +27,6 @@ export default function ProductDetails() {
   const [activeImage, setActiveImage] = useState(0)
   const [tab, setTab] = useState('Description')
   const [added, setAdded] = useState(false)
-  const [copied, setCopied] = useState(false)
   const wished = product ? isWishlisted(product.id) : false
 
   const tabContent = useMemo(() => {
@@ -65,30 +59,8 @@ export default function ProductDetails() {
     setTimeout(() => setAdded(false), 1600)
   }
 
-  const shareUrl = getProductShareUrl(product.id)
-  const imageUrl = getProductImageUrl(product)
-
-  const handleCopyLink = async () => {
-    try {
-      const payload = [
-        product.name,
-        formatPrice(product.price),
-        imageUrl ? `Photo: ${imageUrl}` : null,
-        `Link: ${shareUrl}`,
-      ]
-        .filter(Boolean)
-        .join('\n')
-      await copyText(payload)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 1800)
-    } catch {
-      alert('Could not copy link. Please copy from the address bar.')
-    }
-  }
-
   const handleShare = async () => {
-    const shared = await shareProduct(product)
-    if (!shared) handleCopyLink()
+    await shareProduct(product)
   }
 
   return (
@@ -252,18 +224,6 @@ export default function ProductDetails() {
             >
               <Share2 className="size-3.5 sm:size-4" />
               Share
-            </button>
-            <button
-              type="button"
-              onClick={handleCopyLink}
-              className="inline-flex items-center gap-1.5 rounded-full border border-ink/15 bg-white px-3.5 py-1.5 text-xs font-semibold text-ink/80 transition hover:border-olive hover:text-olive sm:px-4 sm:py-2 sm:text-sm"
-            >
-              {copied ? (
-                <Check className="size-3.5 text-olive sm:size-4" />
-              ) : (
-                <Link2 className="size-3.5 sm:size-4" />
-              )}
-              {copied ? 'Copied!' : 'Copy link'}
             </button>
           </div>
         </div>
