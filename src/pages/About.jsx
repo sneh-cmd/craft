@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { getProducts } from '../data/products'
+import { products } from '../data/products'
 
 const stats = [
   { value: '100%', label: 'Handmade' },
@@ -9,10 +9,9 @@ const stats = [
 ]
 
 export default function About() {
-  const allProducts = getProducts()
-  const storyImage = allProducts[0]?.image
+  const storyImage = products[0]?.image
   const makerImage = `${import.meta.env.BASE_URL}images/products/peacock-pillar-hanging.webp`
-  const collage = allProducts.slice(0, 3).map((p) => p.image)
+  const collage = products.slice(0, 3).map((p) => p.image)
 
   return (
     <div className="page-shell">

@@ -7,7 +7,7 @@ import {
 } from 'lucide-react'
 import BrandLogo from '../components/BrandLogo'
 import ProductCard from '../components/ProductCard'
-import { categories, getProducts } from '../data/products'
+import { categories, products } from '../data/products'
 import { openWhatsApp } from '../utils/whatsapp'
 
 const features = [
@@ -18,7 +18,7 @@ const features = [
 ]
 
 export default function Home() {
-  const bestSellers = getProducts().filter((p) => p.bestSeller).slice(0, 4)
+  const bestSellers = products.filter((p) => p.bestSeller).slice(0, 4)
   const heroBanner = `${import.meta.env.BASE_URL}images/hero-banner.webp`
 
   return (

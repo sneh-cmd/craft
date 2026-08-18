@@ -1,4 +1,3 @@
-/* eslint react-refresh/only-export-components: off */
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 
 const ShopContext = createContext(null)
