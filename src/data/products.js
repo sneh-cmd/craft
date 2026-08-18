@@ -11,7 +11,11 @@ export const SOCIAL = {
 };
 
 export const categories = [
-  { id: "wall-decor", name: "Wall Decor", image: img("monk-rose-hanging.webp") },
+  {
+    id: "wall-decor",
+    name: "Wall Decor",
+    image: img("monk-rose-hanging.webp"),
+  },
   {
     id: "table-decor",
     name: "Table Decor",
