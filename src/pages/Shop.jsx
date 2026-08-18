@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import ProductCard from '../components/ProductCard'
-import { categories, products } from '../data/products'
+import { categories, getProducts } from '../data/products'
 
 const priceFilters = [
   { id: 'all', label: 'All prices' },
@@ -20,7 +20,7 @@ export default function Shop() {
   const [sort, setSort] = useState('popular')
 
   const filtered = useMemo(() => {
-    let list = [...products]
+    let list = getProducts()
 
     if (category !== 'all') {
       list = list.filter((p) => p.category === category)

@@ -10,6 +10,7 @@ import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 import Cart from './pages/Cart'
 import Wishlist from './pages/Wishlist'
+import AdminAddProducts from './pages/AdminAddProducts'
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
             <Route path="contact" element={<Contact />} />
             <Route path="cart" element={<Cart />} />
             <Route path="wishlist" element={<Wishlist />} />
+            <Route path="admin/add-products" element={<AdminAddProducts />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>

@@ -1,6 +1,7 @@
-import { galleryImages } from '../data/products'
+import { getGalleryImages } from '../data/products'
 
 export default function Gallery() {
+  const galleryImages = getGalleryImages()
   return (
     <div className="page-shell mx-auto max-w-7xl px-3 py-5 sm:px-4 sm:py-8 lg:py-12">
       <div className="mb-5 max-w-2xl sm:mb-7 lg:mb-10">

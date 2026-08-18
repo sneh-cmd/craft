@@ -34,5 +34,3 @@ export default function BrandLogo({
     </Link>
   )
 }
-
-export { logoSrc }

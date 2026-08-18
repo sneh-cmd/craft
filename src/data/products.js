@@ -11,11 +11,7 @@ export const SOCIAL = {
 };
 
 export const categories = [
-  {
-    id: "wall-decor",
-    name: "Wall Decor",
-    image: img("monk-rose-hanging.webp"),
-  },
+  { id: "wall-decor", name: "Wall Decor", image: img("monk-rose-hanging.webp") },
   {
     id: "table-decor",
     name: "Table Decor",
@@ -305,11 +301,72 @@ export const products = [
   },
 ];
 
-export const galleryImages = products.map((product, index) => ({
-  id: index + 1,
-  src: product.image,
-  alt: product.name,
-}));
+const ADMIN_PRODUCTS_KEY = 'shreeji_admin_products_v1'
+
+function readAdminProducts() {
+  if (typeof window === 'undefined') return []
+  try {
+    const raw = window.localStorage.getItem(ADMIN_PRODUCTS_KEY)
+    if (!raw) return []
+    const parsed = JSON.parse(raw)
+    if (!Array.isArray(parsed)) return []
+    return parsed
+  } catch {
+    return []
+  }
+}
+
+function normalizeAdminProduct(p) {
+  // Admin page stores `imageFile` and `galleryFiles` (filenames inside /images/products/)
+  const imageFile = typeof p.imageFile === 'string' ? p.imageFile.trim() : ''
+  const galleryFiles = Array.isArray(p.galleryFiles) ? p.galleryFiles : []
+
+  if (!p.id || !p.name || !p.category || !p.price || !imageFile) return null
+
+  const priceNum = Number(p.price)
+  if (!Number.isFinite(priceNum)) return null
+
+  return {
+    id: String(p.id),
+    name: String(p.name),
+    price: priceNum,
+    category: String(p.category),
+    rating: Number.isFinite(Number(p.rating)) ? Number(p.rating) : 4.5,
+    reviews: Number.isFinite(Number(p.reviews)) ? Number(p.reviews) : 0,
+    bestSeller: Boolean(p.bestSeller),
+    inStock: p.inStock === undefined ? true : Boolean(p.inStock),
+    material: p.material ? String(p.material) : '',
+    size: p.size ? String(p.size) : '',
+    color: p.color ? String(p.color) : '',
+    image: img(imageFile),
+    gallery: galleryFiles.length ? galleryFiles.map((f) => img(String(f))) : [img(imageFile)],
+    shortDescription: p.shortDescription ? String(p.shortDescription) : '',
+    description: p.description ? String(p.description) : '',
+    care: p.care ? String(p.care) : '',
+    shipping: p.shipping ? String(p.shipping) : '',
+  }
+}
+
+export function getProducts() {
+  const admin = readAdminProducts()
+  const adminNormalized = admin
+    .map((p) => normalizeAdminProduct(p))
+    .filter(Boolean)
+
+  const byId = new Map()
+  for (const p of products) byId.set(p.id, p)
+  for (const p of adminNormalized) byId.set(p.id, p)
+  return Array.from(byId.values())
+}
+
+export function getGalleryImages() {
+  const all = getProducts()
+  return all.map((product, index) => ({
+    id: index + 1,
+    src: product.image,
+    alt: product.name,
+  }))
+}
 
 export function formatPrice(amount) {
   return new Intl.NumberFormat("en-IN", {
@@ -320,10 +377,11 @@ export function formatPrice(amount) {
 }
 
 export function getProductById(id) {
-  return products.find((p) => p.id === id);
+  return getProducts().find((p) => p.id === id)
 }
 
 export function getProductsByCategory(categoryId) {
-  if (!categoryId || categoryId === "all") return products;
-  return products.filter((p) => p.category === categoryId);
+  const all = getProducts()
+  if (!categoryId || categoryId === "all") return all
+  return all.filter((p) => p.category === categoryId)
 }
