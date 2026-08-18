@@ -23,6 +23,8 @@ export default function Navbar() {
   const [query, setQuery] = useState('')
   const searchRef = useRef(null)
   const searchInputRef = useRef(null)
+  const menuButtonRef = useRef(null)
+  const menuPanelRef = useRef(null)
 
   useEffect(() => {
     if (!searchOpen) return
@@ -44,6 +46,28 @@ export default function Navbar() {
       document.removeEventListener('keydown', onKeyDown)
     }
   }, [searchOpen])
+
+  useEffect(() => {
+    if (!open) return
+
+    const onPointerDown = (e) => {
+      const target = e.target
+      if (menuButtonRef.current?.contains(target)) return
+      if (menuPanelRef.current?.contains(target)) return
+      setOpen(false)
+    }
+
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+
+    document.addEventListener('pointerdown', onPointerDown)
+    document.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown)
+      document.removeEventListener('keydown', onKeyDown)
+    }
+  }, [open])
 
   useEffect(() => {
     if (!searchOpen) return
@@ -194,9 +218,11 @@ export default function Navbar() {
               )}
             </Link>
             <button
+              ref={menuButtonRef}
               type="button"
               aria-label="Menu"
-              className="grid size-8 place-items-center rounded-full transition hover:bg-cream-dark lg:hidden"
+              aria-expanded={open}
+              className="relative z-[60] grid size-8 place-items-center rounded-full transition hover:bg-cream-dark lg:hidden"
               onClick={() => {
                 setOpen((v) => !v)
                 setSearchOpen(false)
@@ -210,10 +236,11 @@ export default function Navbar() {
         <button
           type="button"
           aria-label="Close menu"
-          className={`mobile-menu-backdrop fixed inset-0 z-40 bg-ink/25 lg:hidden ${open ? 'is-open' : ''}`}
+          className={`mobile-menu-backdrop fixed inset-0 z-[45] bg-ink/25 lg:hidden ${open ? 'is-open' : ''}`}
           onClick={() => setOpen(false)}
         />
         <nav
+          ref={menuPanelRef}
           className={`mobile-menu-panel absolute inset-x-0 top-full z-50 border-b border-ink/8 bg-cream px-3 py-2.5 shadow-[0_12px_32px_rgba(37,34,31,0.16)] lg:hidden ${open ? 'is-open' : ''}`}
           aria-hidden={!open}
         >
