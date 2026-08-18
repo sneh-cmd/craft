@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const logoSrc = `${import.meta.env.BASE_URL}images/logo.png`
+const logoSrc = `${import.meta.env.BASE_URL}images/logo.webp`
 
 export default function BrandLogo({
   to = '/',

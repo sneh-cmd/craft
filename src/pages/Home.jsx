@@ -19,7 +19,7 @@ const features = [
 
 export default function Home() {
   const bestSellers = products.filter((p) => p.bestSeller).slice(0, 4)
-  const heroBanner = `${import.meta.env.BASE_URL}images/hero-banner.png`
+  const heroBanner = `${import.meta.env.BASE_URL}images/hero-banner.webp`
 
   return (
     <div>

@@ -10,7 +10,7 @@ const stats = [
 
 export default function About() {
   const storyImage = products[0]?.image
-  const makerImage = `${import.meta.env.BASE_URL}images/products/peacock-pillar-hanging.png`
+  const makerImage = `${import.meta.env.BASE_URL}images/products/peacock-pillar-hanging.webp`
   const collage = products.slice(0, 3).map((p) => p.image)
 
   return (
@@ -28,7 +28,7 @@ export default function About() {
 
               {/* center front */}
               <img
-                src={`${import.meta.env.BASE_URL}images/products/table-decor-display.png`}
+                src={`${import.meta.env.BASE_URL}images/products/table-decor-display.webp`}
                 alt="Handmade craft"
                 className="relative z-30 mb-1 h-[165px] w-[108px] rounded-md border-[4px] border-white object-cover shadow-[0_16px_36px_rgba(37,34,31,0.22)] sm:mb-2 sm:h-[210px] sm:w-[140px] sm:rounded-lg sm:border-[5px] lg:h-[250px] lg:w-[165px] lg:border-[6px]"
               />
